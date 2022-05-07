@@ -1,12 +1,7 @@
 <?php
   require_once("dbtools.inc.php");
-
-	
-
   $account = $_POST["account"]; 	
   $password = $_POST["password"];
-
-
   $link = create_connection();
 					
   //檢查帳號密碼是否正確
