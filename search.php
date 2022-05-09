@@ -57,31 +57,7 @@
 </div>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div style="margin-left: 10%;">
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" width="20%">
-      <a class="navbar-brand" href="#">輔大課程評價系統</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-1" >
-        <li class="nav-item active">
-          <a class="nav-link" href="#" style="color: gray;">課程查詢</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#" style="color: gray;">新增課程評價</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#" style="color: gray;">收藏課程</a>
-        </li>
-      </ul>
-      </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 47%;">
-      <button type="button" class="btn btn-secondary">登入</button>
-    </div>
-  </div>
-  </nav><br>
+
 
 
 
