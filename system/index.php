@@ -83,10 +83,9 @@
     <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
       <ul class="navbar-nav navbar-nav-hover ms-auto">
         <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="search.php">
             <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
             課程查詢
-
           </a>
         <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
