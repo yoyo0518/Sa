@@ -83,16 +83,16 @@
     <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
       <ul class="navbar-nav navbar-nav-hover ms-auto">
         <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="search.php">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="課程查詢.php">
             <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
             課程查詢
           </a>
-        <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-            新增課程評價
-            <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+          <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="新增課程評價.html">
+          <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+          新增課程評價
           </a>
+        
         </li>
 
         <li class="nav-item dropdown dropdown-hover mx-2">
@@ -103,7 +103,7 @@
           </a>
 
         <li class="nav-item my-auto ms-3 ms-lg-0">
-          <a href="sign-in.html" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">登入</a>  
+          <a href="sign/sign-in.html" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">登入</a>  
         </li>
     </div>
   </div>
