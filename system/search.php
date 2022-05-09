@@ -7,7 +7,7 @@
 
 
 
-  
+
 <!-- Navbar Light -->
 <nav
   class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
@@ -58,7 +58,7 @@
 
 
 
-
+<br>
 
 
   
@@ -77,9 +77,6 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
     </form>
   </nav>
-
-
- 
 
   <table class="table table-striped">
     <thead>
