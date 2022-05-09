@@ -21234,7 +21234,7 @@ fieldset:disabled .btn {
 
 .dark-version .fc-theme-standard td,
 .dark-version .fc-theme-standard th {
-  border-color: rgba(, 128, 154, 0.3);
+  border-color: rgba( 128, 154, 0.3);
 }
 
 .dark-version .dataTable-sorter::after {
@@ -22238,7 +22238,7 @@ label,
 }
 
 .bg-gradient-faded-secondary {
-  background-image: radial-gradient(370px circle at 80% 50%, rgba(, 128, 154, 0.6) 0, #626780 100%);
+  background-image: radial-gradient(370px circle at 80% 50%, rgba( 128, 154, 0.6) 0, #626780 100%);
 }
 
 .bg-gradient-faded-success {
@@ -22274,7 +22274,7 @@ label,
 }
 
 .bg-gradient-faded-secondary-vertical {
-  background-image: radial-gradient(200px circle at 50% 70%, rgba(, 128, 154, 0.3) 0, #7b809a 100%);
+  background-image: radial-gradient(200px circle at 50% 70%, rgba( 128, 154, 0.3) 0, #7b809a 100%);
 }
 
 .bg-gradient-faded-success-vertical {
