@@ -1,5 +1,5 @@
 <?php
-  // 檢查cookie中的passed變數是否等於 TRUE
+
   $passed = $_COOKIE["passed"];
 	
 
