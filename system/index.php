@@ -87,19 +87,17 @@
             <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
             課程查詢
           </a>
+
           <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="pages/新增課程評價.html">
           <i class="material-icons opacity-6 me-2 text-md">view_day</i>
           新增課程評價
           </a>
         
-        </li>
-
-        <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons opacity-6 me-2 text-md">article</i>
-            收藏名單
-            <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+          <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="pages/新增課程評價.html">
+          <i class="material-icons opacity-6 me-2 text-md">article</i>
+          收藏名單
           </a>
 
         <li class="nav-item my-auto ms-3 ms-lg-0">

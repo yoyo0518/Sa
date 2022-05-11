@@ -57,20 +57,18 @@
 <!-- End Navbar -->
 
 
+
+
 </div>
 
-
-
 <br>
-
-
   
-<body>
+<body style="background-color:#EAEAEA">
 
 
 
 
-  <div style="margin-left: 10%;margin-right: 10%; border: 1.5px solid rgb(220, 220, 220); padding: 4px;" >
+  <div style="margin-left: 10%;margin-right: 10%; border: 1.5px solid rgb(220, 220, 220); padding: 4px;background-color:white" >
 <div>
 
   <nav class="navbar navbar-light bg-light">
@@ -87,6 +85,7 @@
         <th scope="col">學校</th>
         <th scope="col">學年</th>
         <th scope="col">課程代碼</th>
+        <th scope="col">課名</th>
         <th scope="col">學分</th>
         <th scope="col">上課時間</th>
         <th scope="col">上課地點</th>
@@ -109,14 +108,16 @@
       $rs=mysqli_query($link,$sql);;
       while($record=mysqli_fetch_row($rs))
       {
+
         echo "<tr>
         <td>$record[0]</td>
         <td>$record[1]</td>
         <td>$record[2]</td>
-        <td>$record[3]</td>
+        <td><a href='課程列表.php?id=$record[2]'>$record[3]</a></td>
         <td>$record[4]</td>
         <td>$record[5]</td>
-        <td>$record[6]</td>";
+        <td>$record[6]</td>
+        <td>$record[7]</td>";
       }
       mysqli_close($link);
       ?>
@@ -125,4 +126,76 @@
 </div>
 </div>
 
+<br><br><br><br><br><br><br><br><br><br>
+
+<footer class="bg-light text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h4 class="text-uppercase">輔仁大學</h5>
+
+       
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 2</a>
+          </li>
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 2</a>
+          </li>
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">Link 2</a>
+          </li>
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+ 
+</footer>
+
+
 </body>
+</html>
