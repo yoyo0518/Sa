@@ -89,7 +89,7 @@
           </a>
 
           <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="pages/新增課程評價.html">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="新增評價.php">
           <i class="material-icons opacity-6 me-2 text-md">view_day</i>
           新增課程評價
           </a>
