@@ -15,12 +15,11 @@ $id=$_GET["id"];
 
 <body style="background-color:#EAEAEA">
 
-<!-- Navbar Light -->
-<nav
-  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
-    <a class="navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-    輔大課程評價系統
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <strong>輔大課程評價系統</strong>
+    
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,12 +52,13 @@ $id=$_GET["id"];
       </ul>
 
       <ul class="navbar-nav ms-auto">
-      <button type="button" class="btn btn-secondary">登入</button>
+        <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
       </ul>
     </div>
   </div>
 </nav>
 <!-- End Navbar -->
+
 <br><br>
 
 <?php
@@ -88,27 +88,25 @@ $id=$_GET["id"];
     }
      .card{
          width:30%;
-         margin:5px 10px 5px 22px;
+         margin:1px 45px 5px 22px;
          padding:0px;
      }
  </style>
 
 <body>
-
 <div class="container">
   <div class="row">
-    
-    <div class="col-6 col-sm-3">
-    <h2><?php echo $row1["課程名稱"]?></h2>
+    <div class="col-12 col-sm-3 text-muted"><h1><strong><?php echo $row1["課程名稱"]?></strong></h1></div>
+    </div><br>
+    <div class="row">
     <div class="card" style="width: 18rem;">
-    
     <div class="card-header">
-        課程資訊
+        <h3>課程資訊</h3>  
     </div>
     <?php        
      $result = mysqli_query($link,$sql); 
     while($row=mysqli_fetch_array($result)):
-        
+      $name = $row['課程名稱'];
     ?>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">學校 : <?php echo $row['學校'] ?> </li>
@@ -121,26 +119,104 @@ $id=$_GET["id"];
     </ul>
     <?php endwhile?>
   </div>
-    </div>
-   
-    <div class="col-6">
-      <div class="card text-center">
-       <div class="card-header">
-       Featured
-      </div>
-      <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  
+    
 
-  
-    </div> </div> </div> 
+  <?php
+        $link=mysqli_connect("localhost","root","28350252","my_db");
+        mysqli_select_db($link,"comment");
+
+        $c_sql= " SELECT * FROM `comment` where 課程代碼='$id'";
+        
+        $c_result = mysqli_query($link,$c_sql); 
+        
+         while($c_row=mysqli_fetch_row($c_result)){
+        
+    ?>
+
+
+
+<div class="card" style="width: 68%;">
+  <div class="card-header" align=center>
+    <?php echo $name?>
   </div>
+  <ul class="list-group list-group-flush">
+  
+    <li class="list-group-item">推薦程度:  <?php echo $c_row[1]?></li>
+    <li class="list-group-item">考試方式:  <?php echo $c_row[2]?></li>
+    <li class="list-group-item">作業量:  <?php echo $c_row[3]?></li>
+    <li class="list-group-item">評論:  <?php echo $c_row[4]?></li>
+  </ul>
+<br><br><br><br>
+<div align=right>
+  <a href="delete.php?id=<?php echo $c_row[0]?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+</div>
+</div>
+ <?php }?>
+  </div>
+</div>
     </div>
    
+<br><br><br><br><br>
+
+
+    <footer class="bg-light text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h4 class="text-uppercase">輔仁大學</h5>
+
+       
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">待編輯</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+        
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">待編輯</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+         
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">待編輯</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+ 
+</footer>
+
 </body>
 </html>
