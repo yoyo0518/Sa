@@ -1,22 +1,25 @@
 <meta  content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<head>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<?php $searchtxt=$_POST["searchtxt"];
 
+?>
 
-
-
+</head>
+ 
+<body style="background-color:#EAEAEA">
 
 
 <!-- Navbar Light -->
-<nav
-  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
-    <a class="navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-    輔大課程評價系統
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <strong>輔大課程評價系統</strong>
+    
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -49,21 +52,22 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
-      <button type="button" class="btn btn-secondary">登入</button>
+        <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
       </ul>
     </div>
   </div>
 </nav>
 <!-- End Navbar -->
 
-
-
-
-</div>
-
+<?php
+      $link=mysqli_connect("localhost","root","28350252","my_db");
+      mysqli_select_db($link,"information");
+      
+      $sql= " SELECT * FROM `information`";
+      $c_result = mysqli_query($link,$c_sql); 
+      ?>
 <br>
-  
-<body style="background-color:#EAEAEA">
+ 
 
 
 
@@ -72,9 +76,9 @@
 <div>
 
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">待編輯</a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-1" type="search" placeholder="搜尋關鍵字" aria-label="Search">
+    <a class="navbar-brand">列表</a>
+    <form class="form-inline" action="課程查詢.php" method="post">
+      <input class="form-control mr-sm-1" type="search" placeholder="搜尋關鍵字" aria-label="Search" name="searchtxt">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
     </form>
   </nav>
@@ -103,7 +107,7 @@
       }
       else
 	    {
-		  $sql="select * from information where id like '%$searchtxt%' or password like '%$searchtxt%'";
+		  $sql="select * from information where 課程名稱 like '%$searchtxt%' or 課程代碼 like '%$searchtxt%' or 教師 like '%$searchtxt%' or 上課時間 like '%$searchtxt%'";
 		  }
       $rs=mysqli_query($link,$sql);;
       while($record=mysqli_fetch_row($rs))
@@ -128,14 +132,15 @@
 
 <br><br><br><br><br><br><br><br><br><br>
 
-<footer class="bg-light text-center text-lg-start">
+<footer class="bg-light text-center text-lg-start" >
   <!-- Grid container -->
   <div class="container p-4">
     <!--Grid row-->
     <div class="row">
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h4 class="text-uppercase">輔仁大學</h5>
+        <h4 class="text-uppercase"><strong>輔仁大學</strong></h5>
+         
 
        
       </div>
@@ -143,15 +148,13 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">Links</h5>
+        <h5 class="text-uppercase mb-0">待編輯</h5>
 
         <ul class="list-unstyled">
           <li>
             <a href="#!" class="text-dark">Link 1</a>
           </li>
-          <li>
-            <a href="#!" class="text-dark">Link 2</a>
-          </li>
+        
          
         </ul>
       </div>
@@ -159,15 +162,13 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-uppercase">待編輯</h5>
 
         <ul class="list-unstyled mb-0">
           <li>
             <a href="#!" class="text-dark">Link 1</a>
           </li>
-          <li>
-            <a href="#!" class="text-dark">Link 2</a>
-          </li>
+         
          
         </ul>
       </div>
@@ -175,16 +176,11 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">Links</h5>
-
+        <h5 class="text-uppercase mb-0">待編輯</h5>
         <ul class="list-unstyled">
           <li>
             <a href="#!" class="text-dark">Link 1</a>
           </li>
-          <li>
-            <a href="#!" class="text-dark">Link 2</a>
-          </li>
-         
         </ul>
       </div>
       <!--Grid column-->
