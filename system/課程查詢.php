@@ -1,3 +1,11 @@
+<?php
+$passed=false;
+if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
+  $passed = true;
+}
+
+?>
+
 <meta  content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <head>
@@ -15,7 +23,48 @@
 
 
 <!-- Navbar Light -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+
+<?php
+if($passed != true){
+?>
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+  <div class="container">
+    <a class="navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    輔大課程評價系統
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item px-3">
+          <a class="nav-link">
+            課程查詢
+          </a>
+        </li>
+
+
+
+
+        <li class="nav-item px-3">
+          <a class="nav-link ">
+            
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+      <a href="sign/sign-in.html" class="btn btn-secondary">登入</a>  
+      </ul>
+    </div>
+  </div>
+</nav>
+<?php
+}else{?> 
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+
   <div class="container">
     <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
     <strong>輔大課程評價系統</strong>
@@ -52,11 +101,16 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
-      </ul>
+
+      <button type="button" class="btn btn-secondary"><a href="sign/logout.php" style="color: white;">登出</a></button>
+
     </div>
   </div>
 </nav>
+
+<?php
+}
+?>
 <!-- End Navbar -->
 
 <?php
