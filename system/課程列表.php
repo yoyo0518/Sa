@@ -52,7 +52,7 @@ $id=$_GET["id"];
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <a href="sign/sign-in.html"><button type="button" class="btn btn-secondary">登入</button></a>
+        <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
       </ul>
     </div>
   </div>
@@ -88,7 +88,7 @@ $id=$_GET["id"];
     }
      .card{
          width:30%;
-         margin:5px 45px 5px 22px;
+         margin:1px 45px 5px 22px;
          padding:0px;
      }
  </style>
@@ -146,6 +146,10 @@ $id=$_GET["id"];
     <li class="list-group-item">作業量:  <?php echo $c_row[3]?></li>
     <li class="list-group-item">評論:  <?php echo $c_row[4]?></li>
   </ul>
+<br><br><br><br>
+<div align=right>
+  <a href="delete.php?id=<?php echo $c_row[0]?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+</div>
 </div>
  <?php }?>
   </div>
