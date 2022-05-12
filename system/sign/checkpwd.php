@@ -17,7 +17,6 @@
   {
 
     mysqli_free_result($result);
-	
 
     mysqli_close($link);
 		
@@ -40,8 +39,9 @@
     mysqli_close($link);
 
     // 將使用者資料加入 cookies
-    setcookie("id", $id);
-    setcookie("passed", "TRUE");		
-    header("location:main.php");		
+    setcookie("id", $id, 0, '/');
+    setcookie("passed", "TRUE", 0, '/');		
+
+    header("location:../index.php");		
+    exit;
   }
-?>
