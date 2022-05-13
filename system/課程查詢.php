@@ -30,7 +30,7 @@ if($passed != true){
 <nav
   class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
-    <a class="navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
     輔大課程評價系統
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@ if($passed != true){
       </ul>
 
       <ul class="navbar-nav ms-auto">
-      <a href="sign/sign-in.html" class="btn btn-secondary">登入</a>  
+      <a href="sign/sign-in.html" class="btn btn-success">登入</a>  
       </ul>
     </div>
   </div>
@@ -76,13 +76,13 @@ if($passed != true){
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav navbar-nav-hover mx-auto">
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="課程查詢.php">
             課程查詢
           </a>
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="新增評價.php">
             新增課程評價
           </a>
         </li>
@@ -102,7 +102,7 @@ if($passed != true){
 
       <ul class="navbar-nav ms-auto">
 
-      <button type="button" class="btn btn-secondary"><a href="sign/logout.php" style="color: white;">登出</a></button>
+      <button type="button" class="btn btn-success"><a href="sign/logout.php" style="color: white;">登出</a></button>
 
     </div>
   </div>
