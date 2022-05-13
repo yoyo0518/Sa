@@ -38,7 +38,7 @@
 		
     mysqli_close($link);
 
-    // 將使用者資料加入 cookies
+    //將使用者資料加入 cookies
     setcookie("id", $id, 0, '/');
     setcookie("passed", "TRUE", 0, '/');		
 
