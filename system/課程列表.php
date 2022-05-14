@@ -62,7 +62,7 @@ $id=$_GET["id"];
 <br><br>
 
 <?php
-        $link=mysqli_connect("localhost","root","28350252","my_db");
+        include_once '../config.php';
         mysqli_select_db($link,"information");
 
         $sql= " SELECT * FROM `Information` where 課程代碼='$id'";
@@ -122,7 +122,7 @@ $id=$_GET["id"];
     
 
   <?php
-        $link=mysqli_connect("localhost","root","28350252","my_db");
+        include_once '../config.php';
         mysqli_select_db($link,"comment");
 
         $c_sql= " SELECT * FROM `comment` where 課程代碼='$id'";
