@@ -114,11 +114,11 @@ if($passed != true){
 <!-- End Navbar -->
 
 <?php
-      $link=mysqli_connect("localhost","root","28350252","my_db");
+      include_once '../config.php';
       mysqli_select_db($link,"information");
       
       $sql= " SELECT * FROM `information`";
-      $c_result = mysqli_query($link,$c_sql); 
+      $c_result = mysqli_query($link,$sql); 
       ?>
 <br>
  
@@ -153,8 +153,7 @@ if($passed != true){
     <tbody>
       
       <?php
-      $link=mysqli_connect("localhost","root","28350252","my_db");
-      mysqli_select_db($link,"information");
+
       if(empty($searchtxt))
 	    {
 	    $sql="select * from information";

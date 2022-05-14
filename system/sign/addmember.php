@@ -1,6 +1,6 @@
 <?php
-require_once("dbtools.inc.php");
 
+require_once("dbtools.inc.php");
 
 $account = $_POST["account"];
 $password = $_POST["password"];
