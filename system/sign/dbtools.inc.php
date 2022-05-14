@@ -1,4 +1,5 @@
 <?php
+
   
   include_once '../config.php';
   
@@ -6,6 +7,7 @@
     global $link;
     #$link = mysqli_connect("localhost", "root","", "member")
     #  or die("無法建立資料連接: " . mysqli_connect_error());
+
 	  
     mysqli_query($link, "SET NAMES utf8");
 			   	

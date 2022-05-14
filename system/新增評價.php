@@ -112,13 +112,13 @@ if($passed != true){
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav navbar-nav-hover mx-auto">
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="課程查詢.php">
             課程查詢
           </a>
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="新增評價.php">
             新增課程評價
           </a>
         </li>
