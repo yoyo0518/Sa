@@ -2,7 +2,7 @@
 session_start();
   
   $id = $_GET["id"];
-  $link=mysqli_connect("localhost","root","28350252","my_db");
+  include_once 'config.php';
 	mysqli_select_db($link, "comment");
 
   $sql="delete from comment where 課程代碼=$id";

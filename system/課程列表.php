@@ -62,7 +62,7 @@ $id=$_GET["id"];
 <br><br>
 
 <?php
-        include_once '../config.php';
+        include_once 'config.php';
         mysqli_select_db($link,"information");
 
         $sql= " SELECT * FROM `Information` where 課程代碼='$id'";
@@ -104,8 +104,8 @@ $id=$_GET["id"];
         <h3>課程資訊</h3>  
     </div>
     <?php     
-    include_once 'config.php';
-    mysqli_select_db($link,"comment");   
+
+    mysqli_select_db($link,"my_db");   
      $result = mysqli_query($link,$sql); 
     while($row=mysqli_fetch_array($result)):
       $name = $row['課程名稱'];
