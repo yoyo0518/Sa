@@ -103,7 +103,9 @@ $id=$_GET["id"];
     <div class="card-header">
         <h3>課程資訊</h3>  
     </div>
-    <?php        
+    <?php     
+    include_once 'config.php';
+    mysqli_select_db($link,"comment");   
      $result = mysqli_query($link,$sql); 
     while($row=mysqli_fetch_array($result)):
       $name = $row['課程名稱'];
@@ -122,8 +124,7 @@ $id=$_GET["id"];
     
 
   <?php
-        include_once '../config.php';
-        mysqli_select_db($link,"comment");
+        
 
         $c_sql= " SELECT * FROM `comment` where 課程代碼='$id'";
         
