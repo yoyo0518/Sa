@@ -13,7 +13,10 @@ if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<?php $searchtxt=$_POST["searchtxt"];
+<?php if(isset($searchtxt)){
+$searchtxt=$_POST["searchtxt"];
+}
+
 
 ?>
 
@@ -55,7 +58,7 @@ if($passed != true){
       </ul>
 
       <ul class="navbar-nav ms-auto">
-      <a href="sign/sign-in.html" class="btn btn-success">登入</a>  
+      <a href="sign/sign-in.html" class="btn btn-secondary">登入</a>  
       </ul>
     </div>
   </div>
@@ -102,7 +105,7 @@ if($passed != true){
 
       <ul class="navbar-nav ms-auto">
 
-      <button type="button" class="btn btn-success"><a href="sign/logout.php" style="color: white;">登出</a></button>
+      <button type="button" class="btn btn-secondary"><a href="sign/logout.php" style="color: white;">登出</a></button>
 
     </div>
   </div>
@@ -114,7 +117,7 @@ if($passed != true){
 <!-- End Navbar -->
 
 <?php
-      include_once '../config.php';
+      include_once 'config.php';
       mysqli_select_db($link,"information");
       
       $sql= " SELECT * FROM `information`";
