@@ -151,7 +151,7 @@ if($passed != true){
 
 
 <?php
-      include_once '../config.php';
+      include_once 'config.php';
       mysqli_select_db($link,"comment");
       
 
