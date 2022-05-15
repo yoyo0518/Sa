@@ -47,7 +47,7 @@
           您好，您的帳號資料如下：<br><br>
           　　帳號：$account<br>
           　　密碼：$password<br><br>
-            <a href='http://192.168.64.3/system/sign/sign-in.html'>按此登入本站</a>
+            <a href='sign-in.html'>按此登入本站</a>
           </body>
       </html>
     ";
