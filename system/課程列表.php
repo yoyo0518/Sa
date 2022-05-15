@@ -27,13 +27,13 @@ $id=$_GET["id"];
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav navbar-nav-hover mx-auto">
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="課程查詢.php">
             課程查詢
           </a>
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="新增評價.php">
             新增課程評價
           </a>
         </li>
@@ -132,6 +132,7 @@ $id=$_GET["id"];
         
          while($c_row=mysqli_fetch_row($c_result)){
         
+            $comment_id=$c_row[0];
     ?>
 
 
@@ -142,14 +143,14 @@ $id=$_GET["id"];
   </div>
   <ul class="list-group list-group-flush">
   
-    <li class="list-group-item">推薦程度:  <?php echo $c_row[1]?></li>
-    <li class="list-group-item">考試方式:  <?php echo $c_row[2]?></li>
-    <li class="list-group-item">作業量:  <?php echo $c_row[3]?></li>
-    <li class="list-group-item">評論:  <?php echo $c_row[4]?></li>
+    <li class="list-group-item">推薦程度:  <?php echo $c_row[2]?></li>
+    <li class="list-group-item">考試方式:  <?php echo $c_row[3]?></li>
+    <li class="list-group-item">作業量:  <?php echo $c_row[4]?></li>
+    <li class="list-group-item">評論:  <?php echo $c_row[5]?></li>
   </ul>
 <br><br><br><br>
 <div align=right>
-  <a href="delete.php?id=<?php echo $c_row[0]?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+  <a href="delete.php?id=<?php echo $c_row[1]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
 </div>
 </div>
  <?php }?>
