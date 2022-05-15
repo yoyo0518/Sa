@@ -27,13 +27,21 @@ $id=$_GET["id"];
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav navbar-nav-hover mx-auto">
         <li class="nav-item px-3">
+<<<<<<< HEAD
           <a class="nav-link">
+=======
+          <a class="nav-link" href="課程查詢.php">
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
             課程查詢
           </a>
         </li>
 
         <li class="nav-item px-3">
+<<<<<<< HEAD
           <a class="nav-link">
+=======
+          <a class="nav-link" href="新增評價.php">
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
             新增課程評價
           </a>
         </li>
@@ -62,7 +70,11 @@ $id=$_GET["id"];
 <br><br>
 
 <?php
+<<<<<<< HEAD
         $link=mysqli_connect("localhost","root","28350252","my_db");
+=======
+        include_once 'config.php';
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
         mysqli_select_db($link,"information");
 
         $sql= " SELECT * FROM `Information` where 課程代碼='$id'";
@@ -103,7 +115,13 @@ $id=$_GET["id"];
     <div class="card-header">
         <h3>課程資訊</h3>  
     </div>
+<<<<<<< HEAD
     <?php        
+=======
+    <?php     
+
+    mysqli_select_db($link,"my_db");   
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
      $result = mysqli_query($link,$sql); 
     while($row=mysqli_fetch_array($result)):
       $name = $row['課程名稱'];
@@ -122,8 +140,12 @@ $id=$_GET["id"];
     
 
   <?php
+<<<<<<< HEAD
         $link=mysqli_connect("localhost","root","28350252","my_db");
         mysqli_select_db($link,"comment");
+=======
+        
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 
         $c_sql= " SELECT * FROM `comment` where 課程代碼='$id'";
         
@@ -131,6 +153,10 @@ $id=$_GET["id"];
         
          while($c_row=mysqli_fetch_row($c_result)){
         
+<<<<<<< HEAD
+=======
+            $comment_id=$c_row[0];
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
     ?>
 
 
@@ -141,6 +167,7 @@ $id=$_GET["id"];
   </div>
   <ul class="list-group list-group-flush">
   
+<<<<<<< HEAD
     <li class="list-group-item">推薦程度:  <?php echo $c_row[1]?></li>
     <li class="list-group-item">考試方式:  <?php echo $c_row[2]?></li>
     <li class="list-group-item">作業量:  <?php echo $c_row[3]?></li>
@@ -149,6 +176,16 @@ $id=$_GET["id"];
 <br><br><br><br>
 <div align=right>
   <a href="delete.php?id=<?php echo $c_row[0]?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+=======
+    <li class="list-group-item">推薦程度:  <?php echo $c_row[2]?></li>
+    <li class="list-group-item">考試方式:  <?php echo $c_row[3]?></li>
+    <li class="list-group-item">作業量:  <?php echo $c_row[4]?></li>
+    <li class="list-group-item">評論:  <?php echo $c_row[5]?></li>
+  </ul>
+<br><br><br><br>
+<div align=right>
+  <a href="delete.php?id=<?php echo $c_row[1]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 </div>
 </div>
  <?php }?>

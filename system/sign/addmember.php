@@ -1,6 +1,6 @@
 <?php
-require_once("dbtools.inc.php");
 
+require_once("dbtools.inc.php");
 
 $account = $_POST["account"];
 $password = $_POST["password"];
@@ -13,7 +13,7 @@ $link = create_connection();
 
 //檢查帳號是否有人申請
 $sql = "SELECT * FROM users Where account = '$account'";
-$result = execute_sql($link, "member", $sql);
+$result = execute_sql($link, "my_db", $sql);
 
 //如果帳號已經有人用
 if (mysqli_num_rows($result) != 0) {
@@ -36,7 +36,7 @@ else {
   $sql = "INSERT INTO users (account, password,email) 
     VALUES ('$account', '$password', '$email')";
 
-  $result = execute_sql($link, "member", $sql);
+  $result = execute_sql($link, "my_db", $sql);
 }
 
 

@@ -1,5 +1,17 @@
+<<<<<<< HEAD
 <?php
 session_start() 
+=======
+
+<?php
+
+$passed=false;
+if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
+  $passed = true;
+}
+session_start() 
+
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +67,47 @@ session_start()
 
 
 <!-- Navbar Light -->
+<<<<<<< HEAD
+=======
+<?php
+if($passed != true){
+?>
+<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3"   >
+  <div class="container"  >
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <strong>輔大課程評價系統</strong>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item px-3">
+          <a class="nav-link">
+            課程查詢
+          </a>
+        </li>
+
+
+
+
+        <li class="nav-item px-3">
+          <a class="nav-link ">
+            
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
+      </ul>
+    </div>
+  </div>
+</nav>
+<?php
+}else{?> 
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3"   >
   <div class="container"  >
     <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -92,16 +145,32 @@ session_start()
       </ul>
 
       <ul class="navbar-nav ms-auto">
+<<<<<<< HEAD
         <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
+=======
+        <a href="sign/logout.php"><button type="button" class="btn btn-success">登出</button></a>
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
       </ul>
     </div>
   </div>
 </nav>
+<<<<<<< HEAD
+=======
+
+<?php
+}
+?>
+
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 <!-- End Navbar -->
 
 
 <?php
+<<<<<<< HEAD
       $link=mysqli_connect("localhost","root","28350252","my_db");
+=======
+      include_once 'config.php';
+>>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
       mysqli_select_db($link,"comment");
       
 
