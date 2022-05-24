@@ -1,10 +1,6 @@
 <?php
-<<<<<<< HEAD
-    $link=mysqli_connect("localhost","root","28350252","my_db");
-=======
     include 'config.php';
     #$link=mysqli_connect("localhost","root","28350252","my_db");
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
     mysqli_select_db($link,"comment");
       
 

@@ -13,23 +13,15 @@ if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
-<?php $searchtxt=$_POST["searchtxt"];
-=======
 <?php 
 $searchtxt='';
 if(isset( $_POST["searchtxt"] )){
   $searchtxt=$_POST["searchtxt"];
 }
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 
 ?>
 
-<<<<<<< HEAD
-=======
-?>
 
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 </head>
  
 <body style="background-color:#EAEAEA">
@@ -98,43 +90,6 @@ if($passed != true){
 
 
         <li class="nav-item px-3">
-<<<<<<< HEAD
-          <a class="nav-link ">
-            
-          </a>
-        </li>
-      </ul>
-
-      <ul class="navbar-nav ms-auto">
-      <a href="sign/sign-in.html" class="btn btn-success">登入</a>  
-      </ul>
-    </div>
-  </div>
-</nav>
-<?php
-}else{?> 
-<nav
-  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
-
-  <div class="container">
-    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-    <strong>輔大課程評價系統</strong>
-    
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navigation">
-      <ul class="navbar-nav navbar-nav-hover mx-auto">
-        <li class="nav-item px-3">
-          <a class="nav-link" href="課程查詢.php">
-            課程查詢
-          </a>
-        </li>
-
-        <li class="nav-item px-3">
-=======
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
           <a class="nav-link" href="新增評價.php">
             新增課程評價
           </a>
@@ -155,11 +110,7 @@ if($passed != true){
 
       <ul class="navbar-nav ms-auto">
 
-<<<<<<< HEAD
-      <button type="button" class="btn btn-success"><a href="sign/logout.php" style="color: white;">登出</a></button>
-=======
       <button type="button" class="btn btn-secondary"><a href="sign/logout.php" style="color: white;">登出</a></button>
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
 
     </div>
   </div>
@@ -171,19 +122,11 @@ if($passed != true){
 <!-- End Navbar -->
 
 <?php
-<<<<<<< HEAD
-      $link=mysqli_connect("localhost","root","28350252","my_db");
-      mysqli_select_db($link,"information");
-      
-      $sql= " SELECT * FROM `information`";
-      $c_result = mysqli_query($link,$c_sql); 
-=======
       include_once 'config.php';
       mysqli_select_db($link,"information");
       
       $sql= " SELECT * FROM `information`";
       $c_result = mysqli_query($link,$sql); 
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
       ?>
 <br>
  
@@ -226,13 +169,9 @@ if($passed != true){
       else
 	    {
 		  $sql="select * from information where 課程名稱 like '%$searchtxt%' or 課程代碼 like '%$searchtxt%' or 教師 like '%$searchtxt%' or 上課時間 like '%$searchtxt%'";
-<<<<<<< HEAD
-		  }
-=======
 		
 
     }
->>>>>>> 40971e13bcf3f1eb9f64fdb5b24c93c6a99ced53
       $rs=mysqli_query($link,$sql);;
       while($record=mysqli_fetch_row($rs))
       {
