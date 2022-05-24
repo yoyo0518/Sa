@@ -1,11 +1,13 @@
 <?php
   
-  include_once '../config.php';
+  # include_once '../config.php';
   
   function create_connection() {
     global $link;
-    #$link = mysqli_connect("localhost", "root","", "member")
-    #  or die("無法建立資料連接: " . mysqli_connect_error());
+    
+     $link = mysqli_connect("localhost", "root","28350252", "member");
+     mysqli_select_db($link,"member");
+      #or die("無法建立資料連接: " . mysqli_connect_error());
 	  
     mysqli_query($link, "SET NAMES utf8");
 			   	
