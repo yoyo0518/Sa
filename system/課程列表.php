@@ -1,6 +1,7 @@
 <?php 
 session_start();
 $id=$_GET["id"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@ $id=$_GET["id"];
 <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
     <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-    <strong>輔大課程評價系統</strong>
+    <h4><strong>輔大課程評價系統</strong></h4>
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +60,7 @@ $id=$_GET["id"];
 </nav>
 <!-- End Navbar -->
 
-<br><br>
+<br>
 
 <?php
         include_once 'config.php';
@@ -96,7 +97,62 @@ $id=$_GET["id"];
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-sm-3 text-muted"><h1><strong><?php echo $row1["課程名稱"]?></strong></h1></div>
+    <div class="col-12 col-sm-3 text-muted"><h1><strong><?php echo $row1["課程名稱"]?></strong>
+  
+    <button type="button" class="btn btn-secondary"  style="width:90px" data-bs-toggle="modal" data-bs-target="#insert">新增評價</button></h1>
+  
+    <div class="modal fade" id="insert" tabindex="-1" aria-labelledby="insertLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="insertLabel">新增評論</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="insert.php?id=<?php echo $id?>" method=post>
+          <div class="mb-3">
+            <label for="reason" class="col-form-label">推薦程度:</label>
+            <select class="form-control" id="comment" name="recommend">
+            <option disabled>請選擇推薦程度</option>
+            <option value="非常滿意">非常滿意</option>
+            <option value="滿意">滿意</option>
+            <option value="普通">普通</option>
+            <option value="不推薦">不推薦</option>
+            <option value="極度不推薦">極度不推薦</option>
+            <option value="其他">其他</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">上課內容 / 方式 / 規定 / 點名:</label>
+            <textarea class="form-control" id="message-text" name="class"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">評分 / 考試方式:</label>
+            <textarea class="form-control" id="message-text" name="test"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">報告 / 作業:</label>
+            <textarea class="form-control" id="message-text" name="homework"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">其他補充:</label>
+            <textarea class="form-control" id="message-text" name="other"></textarea>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+        <button type="submit" class="btn btn-primary">送出</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  </div>
     </div><br>
     <div class="row">
     <div class="card" style="width: 18rem;height:375px">
@@ -110,6 +166,7 @@ $id=$_GET["id"];
     $row=mysqli_fetch_array($result);
       $name = $row['課程名稱'];
     ?>
+    
     <div class="card-body">
     <ul class="list-group list-group-flush">
         <li class="list-group-item">學校 : <?php echo $row['學校'] ?> </li>
@@ -132,8 +189,9 @@ $id=$_GET["id"];
         $c_result = mysqli_query($link,$c_sql); 
         
          while($c_row=mysqli_fetch_row($c_result)){
-        
+            $comment_user=$c_row[7];
             $comment_id=$c_row[0];
+            
     ?>
 
 
@@ -146,14 +204,21 @@ $id=$_GET["id"];
   <ul class="list-group list-group-flush">
   
     <li class="list-group-item">推薦程度:  <?php echo $c_row[2]?></li>
-    <li class="list-group-item">考試方式:  <?php echo $c_row[3]?></li>
-    <li class="list-group-item">作業量:  <?php echo $c_row[4]?></li>
-    <li class="list-group-item">評論:  <?php echo $c_row[5]?></li>
+    <li class="list-group-item">上課內容 / 方式 / 規定 / 點名:  <?php echo $c_row[3]?></li>
+    <li class="list-group-item">評分 / 考試方式:  <?php echo $c_row[4]?></li>
+    <li class="list-group-item">報告 / 作業:  <?php echo $c_row[5]?></li>
+    <li class="list-group-item">其他補充:  <?php echo $c_row[6]?></li>
+  
   </ul>
-<br><br><br><br><br>
+<br>
 <div align=right>
+  <?php //自己刊登的才能刪除 
+
+  if($comment_user==$_SESSION["account"]){?> 
+<a href="delete.php?id=<?php echo $c_row[1]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+<?php }?>
 <button type="button" class="btn btn-warning"  style="width:90px" data-bs-toggle="modal" data-bs-target="#report">檢舉評論</button>
-  <a href="delete.php?id=<?php echo $c_row[1]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+  
 </div>
 </div>
  <?php }?>

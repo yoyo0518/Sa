@@ -1,22 +1,23 @@
 <?php
     include 'config.php';
-    #$link=mysqli_connect("localhost","root","28350252","my_db");
     mysqli_select_db($link,"comment");
-      
 
-$number=$_POST['number'];
-echo $number;
-$level=$_POST['level'];
-$test=$_POST['test'];
-$homework=$_POST['homework'];
-$message=$_POST['message'];
-$sql="INSERT INTO `comment`(課程代碼,推薦程度,考試方式,作業量,評論) VALUE ($number,'$level','$test','$homework','$message')";
-$result=mysqli_query($link,$sql);
-echo $sql;
-if(!empty($result)){
-
-echo "<script language='javascript'>";
-echo "alert('填寫成功！');";
-echo "self.location.href='新增評價.php'";
-echo "</script>";}
+    
+    $id = $_GET['id'];
+    $recommend = $_POST['recommend'];
+    $class = $_POST['class'];
+    $test = $_POST['test'];
+    $homework = $_POST['homework'];
+    $other = $_POST['other'];
+    $sql = "INSERT INTO `comment`(課程代碼,推薦程度,上課方式,評分方式,作業量,其他補充) VALUE ('$id','$recommend','$class','$test','$homework','$other')";
+    
+    $result = mysqli_query($link,$sql);
+    echo $sql;
+    if(!empty($result)){
+?>
+    <script language='javascript'>
+    alert('新增成功！');
+    location.href='課程列表.php?id=<?php echo $id?>';
+    </script>
+    <?php }
 ?>
