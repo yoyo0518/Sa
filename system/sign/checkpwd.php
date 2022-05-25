@@ -1,41 +1,24 @@
 <?php
-  require_once("dbtools.inc.php");
+  include '../config.php';
+  // require_once("dbtools.inc.php");
+  session_start();
   $account = $_POST["account"]; 	
   $password = $_POST["password"];
-  $link = create_connection();
+  
 			
-  
-
-
-  
   //檢查帳號密碼是否正確
-  $sql = "SELECT * FROM users Where account = '$account' AND password = '$password'";
-  $result = execute_sql($link, "my_db", $sql);
+  
+  $sql = "select * from user where account = '$account' and password = '$password'";
+  // $result = execute_sql($link, "my_db", $sql);
 
   //如果帳號密碼錯誤
-  if (mysqli_num_rows($result) == 0)
+  if($rs=mysqli_query($link,$sql))
   {
-
-    mysqli_free_result($result);
-
-    mysqli_close($link);
-		
-    //要求使用者輸入正確帳密
-    echo "<script type='text/javascript'>";
-    echo "alert('帳號密碼錯誤，請查明後再登入');";
-    echo "history.back();";
-    echo "</script>";
-  }
-	
-  //如果帳密正確
-  else
-  {
-
     $id = mysqli_fetch_object($result)->id;
-	
-
+    $record=mysqli_fetch_row($rs);
+		echo $sql;
+    $_SESSION["account"]=$record[1];
     mysqli_free_result($result);
-		
     mysqli_close($link);
 
     //將使用者資料加入 cookies
@@ -43,5 +26,21 @@
     setcookie("passed", "TRUE", 0, '/');		
 
     header("location:../index.php");		
+    
+  }
+	
+  //如果帳密正確
+  else
+  {
+    mysqli_free_result($result);
+
+    mysqli_close($link);
+		echo $sql;?>
+    
+    <script type='text/javascript'>
+    alert('帳號密碼錯誤，請查明後再登入');
+    location.href='sign-in.html';
+    </script>
+    <?php
     exit;
   }
