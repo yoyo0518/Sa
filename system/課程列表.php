@@ -2,6 +2,7 @@
 session_start();
 $id=$_GET["id"];
 
+// print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@ $id=$_GET["id"];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>caster4</title>
+    <title>課程評價</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
@@ -18,7 +19,7 @@ $id=$_GET["id"];
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
-    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
     <h4><strong>輔大課程評價系統</strong></h4>
     
     </a>
@@ -34,13 +35,7 @@ $id=$_GET["id"];
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link" href="新增評價.php">
-            新增課程評價
-          </a>
-        </li>
-
-        <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="#">
             收藏課程
           </a>
         </li>
@@ -53,7 +48,13 @@ $id=$_GET["id"];
       </ul>
 
       <ul class="navbar-nav ms-auto">
+        <?php
+        if(($_SESSION['level']!=0 && $_SESSION['level']!=1)){ ?>
         <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
+       <?php }else {?>
+        <a href="sign/logout.php"><button type="button" class="btn btn-success">登出</button></a>
+      <?php }?>
+        
       </ul>
     </div>
   </div>
@@ -169,7 +170,7 @@ $id=$_GET["id"];
     
     <div class="card-body">
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">學校 : <?php echo $row['學校'] ?> </li>
+        <li class="list-group-item">開課學院 : <?php echo $row['開課學院'] ?> </li>
         <li class="list-group-item">學年 : <?php echo $row['學年'] ?></li>
         <li class="list-group-item">課程代碼 : <?php echo $row['課程代碼'] ?></li>
         <li class="list-group-item">學分 : <?php echo $row['學分'] ?></li>

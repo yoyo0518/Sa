@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION["account"];
+// echo $_SESSION["account"];
 $passed=false;
 if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
   $passed = true;
@@ -19,6 +19,11 @@ if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
 $searchtxt='';
 if(isset( $_POST["searchtxt"] )){
   $searchtxt=$_POST["searchtxt"];
+}
+
+$college='';
+if(isset( $_POST["college"] )){
+  $college=$_POST["college"];
 }
 
 ?>
@@ -73,7 +78,7 @@ if($passed != true){
   class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
 
   <div class="container">
-    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
     <strong>輔大課程評價系統</strong>
     
     </a>
@@ -85,15 +90,6 @@ if($passed != true){
         <li class="nav-item px-3">
           <a class="nav-link" href="課程查詢.php">
             課程查詢
-          </a>
-        </li>
-
-
-
-
-        <li class="nav-item px-3">
-          <a class="nav-link" href="新增評價.php">
-            新增課程評價
           </a>
         </li>
 
@@ -140,17 +136,42 @@ if($passed != true){
 <div>
 
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">列表</a>
+    <a class="navbar-brand">課程列表</a>
+        
+
+
     <form class="form-inline" action="課程查詢.php" method="post">
-      <input class="form-control mr-sm-1" type="search" placeholder="搜尋關鍵字" aria-label="Search" name="searchtxt">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
+      <div class="row">
+          <div class="col-5">
+            <select class="form-control" id="comment" name="college" width="100%">
+            <option value="">全部</option>
+            <option value="文學院">文學院</option>
+            <option value="藝術學院">藝術學院</option>
+            <option value="傳播學院">傳播學院</option>
+            <option value="教育學院">教育學院</option>
+            <option value="醫學院">醫學院</option>
+            <option value="理工學院">理工學院</option>
+            <option value="外語學院">外語學院</option>
+            <option value="民生學院">民生學院</option>
+            <option value="法律學院">法律學院</option>
+            <option value="社會科學院">社會科學院</option>
+            <option value="管理學院">管理學院</option>
+            <option value="織品學院">織品學院</option>
+            <option value="全人教育課程中心">全人教育課程中心</option>
+            <option value="進修部">進修部</option>
+            </select>
+      </div>
+      <div class="col-5"  width="100%">
+      <input class="form-control" type="search" placeholder="課名/教師名/課程代碼" aria-label="Search" name="searchtxt">
+    </div>
+      <div class="col-2"><button class="btn btn-outline-success" type="submit">搜尋</button></div></div>
     </form>
   </nav>
 
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">學校</th>
+        <th scope="col">開課學院</th>
         <th scope="col">學年</th>
         <th scope="col">課程代碼</th>
         <th scope="col">課名</th>
@@ -164,16 +185,27 @@ if($passed != true){
       
       <?php
 
-      if(empty($searchtxt))
+      if(empty($searchtxt) && empty($college))
 	    {
 	    $sql="select * from information";
       }
-      else
+      else if(isset($searchtxt) && empty($college))
 	    {
 		  $sql="select * from information where 課程名稱 like '%$searchtxt%' or 課程代碼 like '%$searchtxt%' or 教師 like '%$searchtxt%' or 上課時間 like '%$searchtxt%'";
-		
-
+	
     }
+
+      else if(empty($searchtxt) && isset($college))
+	    {
+	    $sql="select * from information where 開課學院 like '$college'";
+      }
+      else
+	    {
+      $sql="select * from information where 課程名稱 like '%$searchtxt%' or 課程代碼 like '%$searchtxt%' or 教師 like '%$searchtxt%' or 上課時間 like '%$searchtxt%' and 開課學院 like '$college'";
+    }
+    
+
+
       $rs=mysqli_query($link,$sql);;
       while($record=mysqli_fetch_row($rs))
       {
@@ -195,7 +227,7 @@ if($passed != true){
 </div>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 <footer class="bg-light text-center text-lg-start" >
   <!-- Grid container -->

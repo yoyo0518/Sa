@@ -15,9 +15,11 @@
   if($rs=mysqli_query($link,$sql))
   {
     $id = mysqli_fetch_object($result)->id;
-    $record=mysqli_fetch_row($rs);
+    $record=mysqli_fetch_array($rs);
 		echo $sql;
-    $_SESSION["account"]=$record[1];
+    $_SESSION["account"]=$record["account"];
+    $_SESSION["level"]=$record["level"];
+
     mysqli_free_result($result);
     mysqli_close($link);
 
