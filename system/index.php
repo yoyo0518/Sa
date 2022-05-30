@@ -12,7 +12,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <?php
 session_start();
-echo $_SESSION["account"];
+// print_r($_SESSION);
 $passed=false;
 if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
   $passed = true;
@@ -24,14 +24,6 @@ if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-
-
-
-
-
-
-
-
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -79,7 +71,7 @@ if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
   <!-- Navbar -->
 <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
 <?php
-if($passed != true){
+if(empty($_SESSION["level"])){
 ?>
 <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
   <div class="container-fluid px-0">
@@ -114,7 +106,7 @@ if($passed != true){
 }else{?> 
 <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
   <div class="container-fluid px-0">
-    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <a class="navbar-brand font-weight-bolder ms-sm-3" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
       輔仁大學
     </a>
     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -130,19 +122,15 @@ if($passed != true){
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="課程查詢.php">
             <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
             課程查詢
-          </a>
+          </a></li>
 
-          <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="新增評價.php">
-          <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-          新增課程評價
-          </a>
+         
         
           <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="pages/新增課程評價.html">
           <i class="material-icons opacity-6 me-2 text-md">article</i>
           收藏名單
-          </a>
+          </a></li>
 
         <li class="nav-item my-auto ms-3 ms-lg-0">
         <a href="sign/logout.php" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">登出</a> 

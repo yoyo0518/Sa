@@ -1,4 +1,5 @@
 <?php require_once 'my_db.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
