@@ -17,11 +17,11 @@ $id=$_GET["id"];
 
 <body style="background-color:#EAEAEA">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
-    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
-    <h4><strong>輔大課程評價系統</strong></h4>
-    
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    輔大課程評價系統
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,24 +34,31 @@ $id=$_GET["id"];
           </a>
         </li>
 
+        <?php
+       if($_SESSION['level']!=0){ ?>
         <li class="nav-item px-3">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="collect/main2.php">
             收藏課程
           </a>
         </li>
+       <?php }?>
 
+       
+        <?php if($_SESSION['level']==2){ ?>
         <li class="nav-item px-3">
-          <a class="nav-link ">
-            
+          <a class="nav-link" href="管理者檢舉.php">
+            受檢舉評價
           </a>
-        </li>
+        </li><?php }?>
       </ul>
 
       <ul class="navbar-nav ms-auto">
         <?php
-        if(($_SESSION['level']!=0 && $_SESSION['level']!=1)){ ?>
+        if(empty($_SESSION['level'])){ ?>
         <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
+        
        <?php }else {?>
+        
         <a href="sign/logout.php"><button type="button" class="btn btn-success">登出</button></a>
       <?php }?>
         
@@ -108,7 +115,11 @@ $id=$_GET["id"];
       <div class="modal-header">
         <h5 class="modal-title" id="insertLabel">新增評論</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        
       </div>
+
+      
 
       <div class="modal-body">
         <form action="insert.php?id=<?php echo $id?>" method=post>
@@ -219,7 +230,10 @@ $id=$_GET["id"];
 <a href="delete.php?id=<?php echo $c_row[1]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
 <?php }?>
 <button type="button" class="btn btn-warning"  style="width:90px" data-bs-toggle="modal" data-bs-target="#report">檢舉評論</button>
-  
+
+<a href="/sa/system/collect/add2collect.php?comment_id=<?= $comment_id; ?>&id=<?=$id;?>&login_user=<?php echo $_SESSION["account"];?>">
+              <button type="button" class="btn btn-info" style="width:90px">加入收藏</button></a>
+            
 </div>
 </div>
  <?php }?>
