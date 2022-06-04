@@ -1,4 +1,4 @@
-<?php require_once 'my_db.php'; ?>
+<?php include_once 'config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:#EAEAEA">
 <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
     <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -34,20 +34,14 @@
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link" href="新增評價.php">
-            新增課程評價
-          </a>
-        </li>
-
-        <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href="collect/main2.php">
             收藏課程
           </a>
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link ">
-            
+          <a class="nav-link" href="管理者檢舉.php">
+            受檢舉評價
           </a>
         </li>
       </ul>
@@ -66,6 +60,7 @@
         $result = mysqli_query($link,$sql); 
         ?>
  <script>$(document).ready(function() {$('#example').DataTable();} );</script>
+<div style="margin-right:100px;margin-left:100px">
         <table id="example" class="display" style="width:100% ; border: 2;">
             <thead style="background-color: rgb(204, 203, 203)" align="center">
                 <tr>
@@ -142,9 +137,72 @@
                 </tr>
                  <?php endwhile ?>
            </tbody>
-        </table>
+        </table></div>
       
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+<br><br><br><br><br><br><br>
+
+<footer class="bg-light text-center text-lg-start" >
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h4 class="text-uppercase"><strong>輔仁大學</strong></h5>
+         
+
+       
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">待編輯</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+        
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">待編輯</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+         
+         
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">待編輯</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">Link 1</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+ 
+</footer>
+
 
 </body>
 </html>

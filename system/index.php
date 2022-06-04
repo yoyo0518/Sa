@@ -93,9 +93,8 @@ if(empty($_SESSION["level"])){
             課程查詢
           </a>
 
-
-      
-
+         
+    
         <li class="nav-item my-auto ms-3 ms-lg-0">
           <a href="sign/sign-in.html" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">登入</a>  
         </li>
@@ -127,11 +126,18 @@ if(empty($_SESSION["level"])){
          
         
           <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="pages/新增課程評價.html">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="collect/main2.php">
           <i class="material-icons opacity-6 me-2 text-md">article</i>
           收藏名單
           </a></li>
 
+          <?php if($_SESSION['level']==2){ ?>
+            <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="管理者檢舉.php">
+          <i class="material-icons opacity-6  me-2 text-md">article</i>
+            受檢舉評價
+          </a>
+        </li><?php }?>
         <li class="nav-item my-auto ms-3 ms-lg-0">
         <a href="sign/logout.php" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">登出</a> 
         </li>

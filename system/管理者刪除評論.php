@@ -1,5 +1,5 @@
 <?php 
-require_once "my_db.php";
+include_once 'config.php';
 $comment_id=$_GET['comment_id'];
 $report_id=$_GET['report_id'];
 $sql="DELETE FROM `comment` WHERE  comment_id=$comment_id";
