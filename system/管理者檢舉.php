@@ -47,7 +47,7 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <a href="logout.php"><button type="button" class="btn btn-success">登出</button></a>
+        <a href="sign/logout.php"><button type="button" class="btn btn-success">登出</button></a>
       </ul>
     </div>
   </div>

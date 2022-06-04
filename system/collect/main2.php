@@ -102,7 +102,7 @@ if($passed != true){
 
       <ul class="navbar-nav ms-auto">
 
-      <button type="button" class="btn btn-success"><a href="sign/logout.php" style="color: white;">登出</a></button>
+      <button type="button" class="btn btn-success"><a href="../sign/logout.php" style="color: white;">登出</a></button>
 
     </div>
   </div>
