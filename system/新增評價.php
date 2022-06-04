@@ -122,15 +122,15 @@ if($passed != true){
             新增課程評價
           </a>
         </li>
+      
 
         <li class="nav-item px-3">
-          <a class="nav-link">
+          <a class="nav-link" href='collect/main2.php'>
             收藏課程
           </a>
         </li>
 
-        <li class="nav-item px-3">
-          <a class="nav-link ">
+        
             
           </a>
         </li>

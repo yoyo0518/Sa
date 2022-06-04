@@ -1,9 +1,14 @@
-<?php
+<?php 
+
+session_start();
+
 $passed=false;
 if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
   $passed = true;
 }
 
+
+$user_id = $_COOKIE['id'];
 ?>
 <meta  content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,14 +17,7 @@ if (isset($_COOKIE["passed"]) && $_COOKIE["passed"]=='TRUE' ) {
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<?php 
-$searchtxt='';
-if(isset( $_POST["searchtxt"] )){
-  $searchtxt=$_POST["searchtxt"];
-}
 
-
-?>
 
 </head>
  
@@ -70,7 +68,7 @@ if($passed != true){
   class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
 
   <div class="container">
-    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom"   ㄋ>
+    <a class="navbar-brand" href="../index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" >
     <strong>輔大課程評價系統</strong>
     
     </a>
@@ -80,19 +78,19 @@ if($passed != true){
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav navbar-nav-hover mx-auto">
         <li class="nav-item px-3">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="課程查詢.php">
+          <a class="nav-link" href="../課程查詢.php">
             課程查詢
           </a>
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="新增評價.php">
+          <a class="nav-link" href="../新增評價.php">
             新增課程評價
           </a>
         </li>
 
         <li class="nav-item px-3">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="collect/main2.php">
+          <a class="nav-link" href="main2.php">
             收藏課程
           </a>
         </li>
@@ -118,76 +116,69 @@ if($passed != true){
 <!-- End Navbar -->
 
 <?php
-      include_once 'config.php';
-      mysqli_select_db($link,"information");
-      
-      $sql= " SELECT * FROM `information`";
+      include_once '../config.php';
+      mysqli_select_db($link,"collect");
+
+      $sql2="SELECT * FROM users WHERE id=$user_id";
+      $c_result2 = mysqli_query($link,$sql2); 
+      $row2 = mysqli_fetch_array($c_result2);
+      //var_dump($row2);
+      echo $row2['account'];
+      echo '<hr>';
+
+      $sql= " SELECT * FROM `collect` where user_id=$user_id";
       $c_result = mysqli_query($link,$sql); 
-      ?>
-<br>
- 
 
-
-
-
-<div style="margin-left: 10%;margin-right: 10%; border: 1.5px solid rgb(220, 220, 220); padding: 4px;background-color:white" >
-<div>
-
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">列表</a>
-    <form class="form-inline" action="課程查詢.php" method="post">
-      <input class="form-control mr-sm-1" type="search" placeholder="搜尋關鍵字" aria-label="Search" name="searchtxt">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
-    </form>
-  </nav>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">學校</th>
-        <th scope="col">學年</th>
-        <th scope="col">課程代碼</th>
-        <th scope="col">課名</th>
-        <th scope="col">學分</th>
-        <th scope="col">上課時間</th>
-        <th scope="col">上課地點</th>
-        <th scope="col">教師</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <?php
-
-      if(empty($searchtxt))
-	    {
-	    $sql="select * from information";
-      }
-      else
-	    {
-		  $sql="select * from information where 課程名稱 like '%$searchtxt%' or 課程代碼 like '%$searchtxt%' or 教師 like '%$searchtxt%' or 上課時間 like '%$searchtxt%'";
-		
-
-    }
-      $rs=mysqli_query($link,$sql);;
-      while($record=mysqli_fetch_row($rs))
+      while($row = mysqli_fetch_array($c_result)) //$record=mysqli_fetch_row($c_result))
       {
 
-        echo "<tr>
-        <td>$record[0]</td>
-        <td>$record[1]</td>
-        <td>$record[2]</td>
-        <td><a href='課程列表.php?id=$record[2]'>$record[3]</a></td>
-        <td>$record[4]</td>
-        <td>$record[5]</td>
-        <td>$record[6]</td>
-        <td>$record[7]</td>";
-      }
-      mysqli_close($link);
+        $collect_id = $row['collect_id'];
+        $comment_id = $row['comment_id'];
+
+        $sql2="SELECT * FROM comment WHERE comment_id=$comment_id";
+        $c_result2 = mysqli_query($link,$sql2); 
+        $row2 = mysqli_fetch_array($c_result2);
+        $class_id =$row2['課程代碼'];
+        $sqlclass_name="SELECT * FROM information WHERE 課程代碼=$class_id";
+        $c_result3 = mysqli_query($link,$sqlclass_name);
+        $row3 = mysqli_fetch_array($c_result3) ;
+       
+        echo '<br>';
+
+      
+      
+
       ?>
-    </tbody>
-  </table>
-</div>
-</div>
+
+      <div align=center>
+      <div class="card" style="width: 68%;" >
+            <div class="card-header" align=center>
+               <?php 
+               echo $row3['課程名稱'] ?> 
+            </div>
+            <ul class="list-group list-group-flush">
+
+              <li class="list-group-item">推薦程度: <?php echo $row2['推薦程度'] ?></li>
+              <li class="list-group-item">考試方式: <?php echo $row2['考試方式'] ?></li>
+              <li class="list-group-item">作業量: <?php echo $row2['作業量'] ?></li>
+              <li class="list-group-item">評論: <?php echo $row2['評論'] ?></li>
+
+            </ul>
+            <br><br><br><br>
+
+            <div align=right>
+
+
+              <a href="delete_collect.php?collect_id=<?=$collect_id; ?>">
+              <button type="button" class="btn btn-danger" style="width:90px">刪除</button>
+              </a>
+            </div>
+          </div>
+          </div><?}?>
+
+
+
+
 
 <br><br><br><br><br><br><br><br><br><br>
 
