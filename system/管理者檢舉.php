@@ -64,9 +64,7 @@
         <table id="example" class="display" style="width:100% ; border: 2;">
             <thead style="background-color: rgb(204, 203, 203)" align="center">
                 <tr>
-                    <th>推薦程度</th>
-                    <th>考試方式</th>
-                    <th>作業量</th>
+                   
                     <th>評論</th>
                     <th>檢舉原因</th>
                     <th>檢舉描述</th>
@@ -87,23 +85,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><?php echo $row2["report_id"]?></h5>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">推薦程度</label>
-                            <p class="text-muted"><?php echo $row[1]?></p>
+                            <p class="text-muted"><?php echo $row[2]?></p>
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">考試方式</label>
-                            <p class="text-muted"> <?php echo $row[2]?></p>
+                            <p class="text-muted"> <?php echo $row[3]?></p>
                         </div><div class="mb-3">
                             <label for="recipient-name" class="col-form-label">作業量</label>
-                            <p class="text-muted"><?php echo $row[3]?></p>
+                            <p class="text-muted"><?php echo $row[4]?></p>
                         </div><div class="mb-3">
                             <label for="recipient-name" class="col-form-label">評論</label>
-                            <p class="text-muted"><?php echo $row[4]?></p>
+                            <p class="text-muted"><?php echo $row[5]?></p>
                         </div><div class="mb-3">
                             <label for="recipient-name" class="col-form-label">檢舉原因</label>
                             <p class="text-muted"><?php echo $row2[2]?></p>
@@ -124,10 +122,8 @@
                 </div>
                 </div>
                 <tr>
-                    <td><?php echo $row['推薦程度'] ?></td>
-                    <td><?php echo $row['考試方式'] ?></td>
-                    <td><?php echo $row['作業量'] ?></td>
-                    <td><?php echo $row['評論'] ?></td>
+                  
+                    <td><?php echo $row['其他補充'] ?></td>
                     <td><?php echo $row2['report_reason'] ?></td>
                     <td><?php echo $row2['report_describe'] ?></td>
                     <td><?php echo $row2['report_user'] ?></td>
