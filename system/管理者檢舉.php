@@ -117,6 +117,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
                         <a href="管理者刪除評論.php?report_id=<?php echo $row2['report_id']?>&comment_id=<?php echo $row2['comment_id']?>"><button type="submit" class="btn btn-primary">刪除</button></a>
+                        
                     </div>
                     </div>
                 </div>
@@ -155,40 +156,27 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">待編輯</h5>
+      <a href="https://www.instagram.com/irisxiao_/" class="text-dark">
+         <p class="text-uppercase mb-0">最新消息</p>
+      </a>
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
         
          
-        </ul>
+
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">待編輯</h5>
-
-        <ul class="list-unstyled mb-0">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
-         
-         
-        </ul>
+      <a href="http://www.management.fju.edu.tw/subweb/donate/contact.php" class="text-dark"> 
+        <p class="text-uppercase">聯絡我們</p></a>
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">待編輯</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
-        </ul>
+        <p class="text-uppercase mb-0">製作單位</p>
+        <p>謝大毛股份有限公司</p>
       </div>
       <!--Grid column-->
     </div>
