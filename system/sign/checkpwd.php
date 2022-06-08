@@ -11,30 +11,36 @@
   $sql = "select * from user where account = '$account' and password = '$password'";
   // $result = execute_sql($link, "my_db", $sql);
 
-  //如果帳號密碼錯誤
-  if($rs=mysqli_query($link,$sql))
+  //如果帳號密碼正確
+  $rs=mysqli_query($link,$sql);
+  
+  if(mysqli_num_rows($rs))
   {
-    $id = mysqli_fetch_object($result)->id;
+
+    // $id = mysqli_fetch_object($result)->id;
     $record=mysqli_fetch_array($rs);
-		echo $sql;
+    var_dump($record[0]);
+
     $_SESSION["account"]=$record["account"];
     $_SESSION["level"]=$record["level"];
 
-    mysqli_free_result($result);
+    // mysqli_free_result($result);
     mysqli_close($link);
 
     //將使用者資料加入 cookies
-    setcookie("id", $id, 0, '/');
-    setcookie("passed", "TRUE", 0, '/');		
+    // setcookie("id", $id, 0, '/');
+    // setcookie("passed", "TRUE", 0, '/');		
 
-    header("location:../index.php");		
+  header("location:../index.php");	
+
+
     
   }
 	
-  //如果帳密正確
+  //如果帳密bad
   else
   {
-    mysqli_free_result($result);
+    // mysqli_free_result($result);
 
     mysqli_close($link);
 		echo $sql;?>

@@ -176,7 +176,7 @@ if($passed != true){
                 <div class="card-body">
                 <form method="POST" action="insert.php" class="p-5 bg-white" >
                 <div class="relative" >
-                <center><img src="user.png"width=15% > 陳欣右</center><br><br>
+                <center><img src="user.png"width=15% > </center><br><br>
                 </div>
                 <div class="row form-group" >
                     <div class="col-md-12" >
