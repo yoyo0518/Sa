@@ -117,6 +117,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
                         <a href="管理者刪除評論.php?report_id=<?php echo $row2['report_id']?>&comment_id=<?php echo $row2['comment_id']?>"><button type="submit" class="btn btn-primary">刪除</button></a>
+                        
                     </div>
                     </div>
                 </div>
