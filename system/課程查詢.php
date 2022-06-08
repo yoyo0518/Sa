@@ -44,9 +44,11 @@ if(isset( $_POST["college"] )){
 
 <nav
   class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+
   <div class="container">
-    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-    輔大課程評價系統
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" >
+    <strong>輔大課程評價系統</strong>
+    
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -59,17 +61,14 @@ if(isset( $_POST["college"] )){
           </a>
         </li>
 
-        <?php
-       if($_SESSION['level']!=0){ ?>
+
         <li class="nav-item px-3">
           <a class="nav-link" href="collect/main2.php">
             收藏課程
           </a>
         </li>
-       <?php }?>
-        
-       
 
+        
         <?php if($_SESSION['level']==2){ ?>
         <li class="nav-item px-3">
           <a class="nav-link" href="管理者檢舉.php">
@@ -78,21 +77,14 @@ if(isset( $_POST["college"] )){
         </li><?php }?>
       </ul>
 
+
       <ul class="navbar-nav ms-auto">
-        <?php
-        if(empty($_SESSION['level'])){ ?>
-        <a href="sign/sign-in.html"><button type="button" class="btn btn-success">登入</button></a>
-        
-       <?php }else {?>
-        
-        <a href="sign/logout.php"><button type="button" class="btn btn-success">登出</button></a>
-      <?php }?>
-        
-      </ul>
+
+      <button type="button" class="btn btn-success"><a href="sign/logout.php" style="color: white;">登出</a></button>
+
     </div>
   </div>
 </nav>
-
 <!-- End Navbar -->
 
 <?php
@@ -221,40 +213,27 @@ if(isset( $_POST["college"] )){
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">待編輯</h5>
+      <a href="https://www.instagram.com/irisxiao_/" class="text-dark">
+         <p class="text-uppercase mb-0">最新消息</p>
+      </a>
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
         
          
-        </ul>
+
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">待編輯</h5>
-
-        <ul class="list-unstyled mb-0">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
-         
-         
-        </ul>
+      <a href="http://www.management.fju.edu.tw/subweb/donate/contact.php" class="text-dark"> 
+        <p class="text-uppercase">聯絡我們</p></a>
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-0">待編輯</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-dark">Link 1</a>
-          </li>
-        </ul>
+        <p class="text-uppercase mb-0">製作單位</p>
+        <p>謝大毛股份有限公司</p>
       </div>
       <!--Grid column-->
     </div>

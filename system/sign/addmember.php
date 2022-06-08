@@ -8,7 +8,7 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 
 
-echo $account,$password,$email;
+
 
 
 //檢查帳號是否有人申請
