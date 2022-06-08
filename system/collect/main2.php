@@ -142,7 +142,6 @@ if($passed != true){
         $sqlclass_name="SELECT * FROM information WHERE 課程代碼=$class_id";
         $c_result3 = mysqli_query($link,$sqlclass_name);
         $row3 = mysqli_fetch_array($c_result3) ;
-       
         echo '<br>';
 
       
