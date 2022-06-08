@@ -250,7 +250,7 @@ $id=$_GET["id"];
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="report.php?comment_id=<?php echo $comment_id?>" method=post>
+        <form action="report.php?comment_id=<?php echo $comment_id?>&report_user=<?php echo $_SESSION["account"];?>" method=post>
           <div class="mb-3">
             <label for="reason" class="col-form-label">檢舉原因:</label>
             <select class="form-control" id="reason" name="reason">
