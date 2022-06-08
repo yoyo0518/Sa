@@ -2,11 +2,13 @@
 include_once 'config.php';
 $comment_id=$_GET['comment_id'];
 $report_id=$_GET['report_id'];
-$sql="DELETE FROM `comment` WHERE  comment_id=$comment_id";
-$sql="DELETE FROM `report` WHERE report_id=$report_id ";
-$result=mysqli_query($link,$sql);
-echo $sql;
-if(mysqli_query($link,$sql))
+$sql1="DELETE FROM `comment` WHERE  comment_id=$comment_id ";
+$sql2="DELETE FROM `report` WHERE report_id=$report_id ";
+$result=mysqli_query($link,$sql2);
+$result2=mysqli_query($link,$sql1);
+echo $sql1;
+echo $sql2;
+if(mysqli_query($link,$sql2))
 {?>
 <script> 
 alert("刪除成功!");
