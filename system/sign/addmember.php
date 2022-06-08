@@ -8,7 +8,7 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 
 
-
+echo $account,$password,$email;
 
 
 //檢查帳號是否有人申請
@@ -34,9 +34,8 @@ else {
   // mysqli_free_result($result);
 
 
-  $sql = "INSERT INTO user (account, password,email,level) 
-    VALUES ('$account', '$password', '$email',1)";
-
+  $sql = "INSERT INTO `user` (account,password,email,level) VALUES ('$account', '$password','$email',1)";
+  
 
 
   $result=mysqli_query($link,$sql);
