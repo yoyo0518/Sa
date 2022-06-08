@@ -2,8 +2,8 @@
 session_start();
 
 include '../config.php';
-
-$user_id = $_GET['login_user'];
+// print_r($_SESSION);
+ $user_id = $_SESSION['account'];
 
 
 #$link=mysqli_connect("localhost","root","28350252","my_db");
@@ -21,7 +21,7 @@ if ($row=mysqli_num_rows($result2) != 0){
     
     ?>
     <script> 
-    alert("已加入收藏中!");
+    alert("請勿重複加入!");
     location.href="../課程列表.php?id=<?=$id;?>";
     </script>
     <?php 
