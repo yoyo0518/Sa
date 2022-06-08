@@ -72,8 +72,6 @@ $id=$_GET["id"];
 
 <?php
         include_once 'config.php';
-        mysqli_select_db($link,"information");
-
         $sql= " SELECT * FROM `Information` where 課程代碼='$id'";
         
         $result = mysqli_query($link,$sql); 
@@ -173,10 +171,12 @@ $id=$_GET["id"];
     </div>
     <?php     
 
-    mysqli_select_db($link,"my_db");   
+    
      $result = mysqli_query($link,$sql); 
     $row=mysqli_fetch_array($result);
       $name = $row['課程名稱'];
+
+
     ?>
     
     <div class="card-body">
@@ -200,9 +200,9 @@ $id=$_GET["id"];
         
         $c_result = mysqli_query($link,$c_sql); 
         
-         while($c_row=mysqli_fetch_row($c_result)){
-            $comment_user=$c_row[7];
-            $comment_id=$c_row[0];
+         while($c_row=mysqli_fetch_array($c_result)){
+            $comment_user=$c_row["comment_user"];
+            $comment_id=$c_row["comment_id"];
             
     ?>
 
@@ -215,11 +215,11 @@ $id=$_GET["id"];
   
   <ul class="list-group list-group-flush">
   
-    <li class="list-group-item">推薦程度:  <?php echo $c_row[2]?></li>
-    <li class="list-group-item">上課內容 / 方式 / 規定 / 點名:  <?php echo $c_row[3]?></li>
-    <li class="list-group-item">評分 / 考試方式:  <?php echo $c_row[4]?></li>
-    <li class="list-group-item">報告 / 作業:  <?php echo $c_row[5]?></li>
-    <li class="list-group-item">其他補充:  <?php echo $c_row[6]?></li>
+    <li class="list-group-item">推薦程度:  <?php echo $c_row["推薦程度"]?></li>
+    <li class="list-group-item">上課內容 / 方式 / 規定 / 點名:  <?php echo $c_row["上課方式"]?></li>
+    <li class="list-group-item">評分 / 考試方式:  <?php echo $c_row["評分方式"]?></li>
+    <li class="list-group-item">報告 / 作業:  <?php echo $c_row["作業量"]?></li>
+    <li class="list-group-item">其他補充:  <?php echo $c_row["其他補充"]?></li>
   
   </ul>
 <br>
@@ -227,12 +227,13 @@ $id=$_GET["id"];
   <?php //自己刊登的才能刪除 
 
   if($comment_user==$_SESSION["account"]){?> 
-<a href="delete.php?id=<?php echo $c_row[1]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
+<a href="delete.php?id=<?php echo $c_row["課程代碼"]?>&comment_id=<?=$comment_id;?>"><button type="button" class="btn btn-danger"  style="width:90px" >刪除評論</button></a>
 <?php }?>
 <button type="button" class="btn btn-warning"  style="width:90px" data-bs-toggle="modal" data-bs-target="#report">檢舉評論</button>
 
-<a href="/sa/system/collect/add2collect.php?comment_id=<?= $comment_id; ?>&id=<?=$id;?>&login_user=<?php echo $_SESSION["account"];?>">
-              <button type="button" class="btn btn-info" style="width:90px">加入收藏</button></a>
+<a href="collect/add2collect.php?comment_id=<?= $comment_id; ?>&id=<?=$id;?>">
+              <button type="button" class="btn btn-info" style="width:90px">加入收藏</button>
+              </a>
             
 </div>
 </div>
