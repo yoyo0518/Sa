@@ -1,6 +1,6 @@
 <?php
 
-require_once("dbtools.inc.php");
+include '../config.php';
 
 $account = $_POST["account"];
 $password = $_POST["password"];
@@ -9,16 +9,17 @@ $email = $_POST["email"];
 
 
 
-$link = create_connection();
+
 
 //檢查帳號是否有人申請
-$sql = "SELECT * FROM users Where account = '$account'";
-$result = execute_sql($link, "my_db", $sql);
+$sql = "SELECT * FROM user Where account = '$account'";
+$result=mysqli_query($link,$sql);
+
 
 //如果帳號已經有人用
-if (mysqli_num_rows($result) != 0) {
+if (mysqli_num_rows($result)!=0){
 
-  mysqli_free_result($result);
+  // mysqli_free_result($result);
 
 
   echo "<script type='text/javascript'>";
@@ -30,13 +31,15 @@ if (mysqli_num_rows($result) != 0) {
 //如果帳號沒人用
 else {
 
-  mysqli_free_result($result);
+  // mysqli_free_result($result);
 
 
-  $sql = "INSERT INTO users (account, password,email) 
-    VALUES ('$account', '$password', '$email')";
+  $sql = "INSERT INTO user (account, password,email,level) 
+    VALUES ('$account', '$password', '$email',1)";
 
-  $result = execute_sql($link, "my_db", $sql);
+
+
+  $result=mysqli_query($link,$sql);
 }
 
 
