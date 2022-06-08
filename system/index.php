@@ -178,7 +178,7 @@ if(empty($_SESSION["level"])){
       <div class="row">
         <div class="col-lg-7 text-center mx-auto">
           <h1 class="text-white pt-3 mt-n5">輔大課程評價系統</h1>
-          <p class="lead text-white mt-3">待編輯 </p>
+          <p class="lead text-white mt-3">FJCU </p>
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@ if(empty($_SESSION["level"])){
 
   
 
-<footer class="bg-light text-center text-lg-start" >
+<footer class="bg-light text-center text-lg-start" bgcolor>
   <!-- Grid container -->
   <div class="container p-4">
     <!--Grid row-->
