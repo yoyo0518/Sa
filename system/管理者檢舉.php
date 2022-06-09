@@ -54,7 +54,7 @@
 </nav>
 <!-- End Navbar -->
 <br><br>
-<h2 align="center">管理者檢舉</h2><br>
+<h2 align="center">檢舉評價管理</h2><br>
 <?php
         $sql= " SELECT * FROM `comment`";
         $result = mysqli_query($link,$sql); 
