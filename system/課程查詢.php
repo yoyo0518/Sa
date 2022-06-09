@@ -41,7 +41,44 @@ if(isset( $_POST["college"] )){
 
 
 <!-- Navbar Light -->
+<?php
+if(empty($_SESSION["level"])){
+?>
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
 
+  <div class="container">
+    <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" >
+    <strong>輔大課程評價系統</strong>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item px-3">
+          <a class="nav-link" href="課程查詢.php">
+            課程查詢
+          </a>
+        </li>
+
+
+      
+
+        
+       
+      </ul>
+
+
+      <ul class="navbar-nav ms-auto">
+
+      <button type="button" class="btn btn-success"><a href="sign/sign-in.html" style="color: white;">登入</a></button>
+
+    </div>
+  </div>
+</nav>
+<?php }else{?>
 <nav
   class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
 
@@ -85,6 +122,10 @@ if(isset( $_POST["college"] )){
     </div>
   </div>
 </nav>
+<?php
+}
+?>
+
 <!-- End Navbar -->
 
 <?php
@@ -130,9 +171,9 @@ if(isset( $_POST["college"] )){
             </select>
       </div>
       <div class="col-5"  width="100%">
-      <input class="form-control" type="search" placeholder="課名/教師名/課程代碼" aria-label="Search" name="searchtxt">
-    </div>
-      <div class="col-2"><button class="btn btn-outline-success" type="submit">搜尋</button></div></div>
+      <input withclass="form-control" type="search" placeholder="課名/教師名/課程代碼" aria-label="Search" name="searchtxt">
+    </div> 
+    <div class="col-2"><button class="btn btn-outline-success" type="submit" >搜尋</button></div></div>
     </form>
   </nav>
 
